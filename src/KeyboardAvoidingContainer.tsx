@@ -25,6 +25,8 @@ import {genericMemo} from './utils/react'
 import {measureInWindow} from './utils/measureInWindow'
 import {hijackTextInputEvents} from './utils/hijackTextInputEvents'
 
+import {measure} from './utils/measure'
+
 const {height: SCREEN_HEIGHT} = Dimensions.get('window')
 const KEYBOARD_PADDING = 48
 
@@ -286,6 +288,7 @@ export function useKeyboardAvoidingContainerProps<
     // accordingly.
     // A switch between two text inputs happens when a keyboard is shown
     // and another text input is currently being focused on.
+
     const sub = textInputEvents.addListener(
       'textInputDidFocus',
       newFocusedTextInputNodeHandle => {
@@ -298,7 +301,7 @@ export function useKeyboardAvoidingContainerProps<
           }
 
           const newFocusedTextInputLayout = newFocusedTextInputNodeHandle
-            ? await measureInWindow(newFocusedTextInputNodeHandle)
+            ? await measure(newFocusedTextInputNodeHandle)
             : null
 
           focusedTextInputLayoutRef.current = newFocusedTextInputLayout
@@ -306,7 +309,7 @@ export function useKeyboardAvoidingContainerProps<
                 ...newFocusedTextInputLayout,
                 screenY:
                   newFocusedTextInputLayout.screenY +
-                  scrollViewOffsetRef.current,
+                  newFocusedTextInputLayout.height,
               }
             : newFocusedTextInputLayout
 
