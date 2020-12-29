@@ -1,6 +1,6 @@
 {
-  "name": "react-native-keyboard-avoiding-scroll-view",
-  "version": "0.0.0-development",
+  "name": "@pembajak/react-native-keyboard-avoiding-scroll-view",
+  "version": "0.0.1",
   "description": "React Native ScrollView extension that prevents inputs from being covered by the keyboard",
   "keywords": [
     "react native",
@@ -28,7 +28,8 @@
     "url": "https://github.com/alkafinance/react-native-keyboard-avoiding-scroll-view.git"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   },
   "scripts": {
     "typecheck": "tsc --noEmit --pretty",
@@ -39,7 +40,8 @@
     "example": "yarn --cwd example",
     "prepublishOnly": "yarn build",
     "presemantic-release": "yarn build",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "release": "release-it"
   },
   "prettier": {
     "bracketSpacing": false,
@@ -91,6 +93,7 @@
     "lint-staged": "^9.2.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.18.2",
+    "release-it": "^14.2.2",
     "semantic-release": "^15.13.18",
     "typescript": "^3.5.3",
     "utility-types": "^3.7.0"

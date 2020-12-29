@@ -1,4 +1,3 @@
-import {Component} from 'react'
 import {ScreenRect} from 'react-native'
 
 export function measure(component: any) {
