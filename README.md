@@ -9,7 +9,7 @@
 
 React Native ScrollView extension that prevents inputs from being covered by the keyboard. 
 
-**[NOTE]: Effectively the same as the fork, but added proper support for Android ScrollToEnd on input focus.**
+**[NOTE]: Effectively the same as the original, but added proper support for ScrollToEnd on input focus.**
 
 <img src="./.github/demo.gif" width="auto" height="640">
 
