@@ -207,6 +207,13 @@ export function useKeyboardAvoidingContainerProps<
   )
 
   useEffect(() => {
+    const keyboardDidShowSub = Keyboard.addListener('keyboardDidShow',
+        () => {
+          if(Platform.OS == "android"){
+            console.log("I am android");
+            scrollViewRef.current.scrollToEnd({animated: true});
+          }
+        });
     const keyboardWillShowSub = Keyboard.addListener(
       'keyboardWillShow',
       // Right before the keyboard is shown, we know that a text input is being
@@ -274,6 +281,7 @@ export function useKeyboardAvoidingContainerProps<
     )
 
     return () => {
+      keyboardDidShowSub.remove()
       keyboardWillShowSub.remove()
       keyboardWillChangeFrameSub.remove()
       keyboardWillHideSub.remove()
