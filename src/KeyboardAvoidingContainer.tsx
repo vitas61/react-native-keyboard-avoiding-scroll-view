@@ -209,10 +209,7 @@ export function useKeyboardAvoidingContainerProps<
   useEffect(() => {
     const keyboardDidShowSub = Keyboard.addListener('keyboardDidShow',
         () => {
-          if(Platform.OS == "android"){
-            console.log("I am android");
             scrollViewRef.current.scrollToEnd({animated: true});
-          }
         });
     const keyboardWillShowSub = Keyboard.addListener(
       'keyboardWillShow',
